@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 /**
- * main - Entry point
+ * main - prints all single-digit numbers separated by comma and space
  *
  * Return: Always 0
  */
@@ -12,6 +12,13 @@ int main(void)
 	while (i <= 9)
 	{
 		putchar(i + '0');
+
+		if (i != 9)
+		{
+			putchar(',');
+			putchar(' ');
+		}
+
 		i++;
 	}
 
