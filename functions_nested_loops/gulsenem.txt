@@ -1,0 +1,1 @@
+gulustan is false gulsenem is true
