@@ -1,0 +1,11 @@
+#ifndef MAIN_H
+#define MAIN_H
+
+int mul(int a, int b);
+void print_diagonal(int n);
+int _isdigit(int c);
+int _putchar(char c);
+int _isupper(int c);
+void print_numbers(void);
+
+#endif /*MAIN_H*/
