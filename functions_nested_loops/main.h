@@ -2,6 +2,8 @@
 #define MAIN_H
 
 int _putchar(char c);
-int _sign(int c);
+int _islower(int c);
+int _isalpha(int c);
+int print_sign(int n);
 
-#endif
+#endif /* MAIN_H */
