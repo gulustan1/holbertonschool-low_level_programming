@@ -3,6 +3,6 @@
 
 int _putchar(char c);
 void print_chessboard(char (*a)[8]);
+int _strlen(char *s);
 
 #endif
-
