@@ -11,7 +11,7 @@ void _puts_recursion(char *s)
 		_putchar('\n'); /* Print a newline character */
 		return;
 	}
-	_putchar(*s); 
+	_putchar(*s);
 	/* Recursively call the function with the next character */
 	_puts_recursion(s + 1);
 }
