@@ -1,53 +1,30 @@
-#include "lists.h"
-#include <stdlib.h>
+#ifndef LISTS_H
+#define LISTS_H
 
 /**
- * delete_dnodeint_at_index - deletes the node at index of a dlistint_t list
- * @head: double pointer to the head of the list
- * @index: index of the node to delete, starting at 0
+ * struct dlistint_s - doubly linked list
+ * @n: integer
+ * @prev: points to the previous node
+ * @next: points to the next node
  *
- * Return: 1 if it succeeded, -1 if it failed
+ * Description: doubly linked list node structure
+ *
  */
-int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
+typedef struct dlistint_s
 {
-	dlistint_t *current;
-	unsigned int i = 0;
+    int n;
+    struct dlistint_s *prev;
+    struct dlistint_s *next;
+} dlistint_t;
 
-	if (head == NULL || *head == NULL)
-		return (-1);
+size_t print_dlistint(const dlistint_t *h);
+size_t dlistint_len(const dlistint_t *h);
+dlistint_t *add_dnodeint(dlistint_t **head, const int n);
+dlistint_t *add_dnodeint_end(dlistint_t **head, const int n);
+void free_dlistint(dlistint_t *head);
+dlistint_t *get_dnodeint_at_index(dlistint_t *head, unsigned int index);
+int sum_dlistint(dlistint_t *head);
+dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n);
+int delete_dnodeint_at_index(dlistint_t **head, unsigned int index);
 
-	current = *head;
-
-	/* Case 1: Deleting the head node (index 0) */
-	if (index == 0)
-	{
-		*head = current->next;
-		if (*head != NULL)
-			(*head)->prev = NULL;
-		free(current);
-		return (1);
-	}
-
-	/* Traverse to the node at the specified index */
-	while (current != NULL && i < index)
-	{
-		current = current->next;
-		i++;
-	}
-
-	/* Case 2: Index is out of bounds */
-	if (current == NULL)
-		return (-1);
-
-	/* Case 3: Deleting a node in the middle or at the end */
-	/* Link the previous node to the next one */
-	if (current->prev != NULL)
-		current->prev->next = current->next;
-
-	/* Link the next node back to the previous one (if not at the end) */
-	if (current->next != NULL)
-		current->next->prev = current->prev;
-
-	free(current);
-	return (1);
-}
+#endif /*LISTS_H*/
